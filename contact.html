@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="تماس با مؤسسه مردم‌نهاد جوانان خورشید">
+    <title>تماس با ما | خورشید</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="index.html" class="logo">
+                    <span class="logo-text">خورشید</span>
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">خانه</a></li>
+                <li><a href="about.html">درباره ما</a></li>
+                <li><a href="objectives.html">اهداف و وظایف</a></li>
+                <li><a href="contact.html" class="active btn-contact">تماس با ما</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>تماس با ما</h1>
+            <p>ما اینجا هستیم تا کمک کنیم</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="page-content">
+        <div class="container">
+            <div class="contact-wrapper">
+                <!-- Contact Form -->
+                <div class="contact-form-section">
+                    <h2>ارسال پیام</h2>
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-group">
+                            <label for="name">نام و نام خانوادگی *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">ایمیل *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">شماره تلفن</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">موضوع *</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">انتخاب کنید...</option>
+                                <option value="معرفی دانش‌آموز">معرفی دانش‌آموز مستعد</option>
+                                <option value="درخواست حمایت">درخواست حمایت آموزشی</option>
+                                <option value="همکاری">پیشنهاد همکاری</option>
+                                <option value="سوال">سوال و استفسار</option>
+                                <option value="دیگر">دیگر</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">پیام *</label>
+                            <textarea id="message" name="message" rows="6" required></textarea>
+                        </div>
+
+                        <div class="form-group checkbox">
+                            <input type="checkbox" id="agree" name="agree" required>
+                            <label for="agree">
+                                من با <a href="#privacy">شرایط و قوانین</a> موافقم
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">ارسال پیام</button>
+                        <div id="formMessage" class="form-message"></div>
+                    </form>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="contact-info-section">
+                    <h2>اطلاعات تماس</h2>
+                    
+                    <div class="contact-info-box">
+                        <h3>📍 آدرس</h3>
+                        <p>
+                            استان فارس<br>
+                            شهر شیراز<br>
+                            محله عبیرآمیز<br>
+                            خیابان عبیرآمیز<br>
+                            پلاک ۷۳، طبقه ۳
+                        </p>
+                        <p class="postal">کد پستی: ۷۱۴۵۶۱۷۷۸۱</p>
+                    </div>
+
+                    <div class="contact-info-box">
+                        <h3>📞 تلفن</h3>
+                        <p>
+                            <a href="tel:1402">۱۴۰۲</a>
+                        </p>
+                        <p class="info-note">(تماس مجاز در ساعات اداری)</p>
+                    </div>
+
+                    <div class="contact-info-box">
+                        <h3>📧 ایمیل</h3>
+                        <p>
+                            <a href="mailto:info@khorshid.ngo">info@khorshid.ngo</a>
+                        </p>
+                    </div>
+
+                    <div class="contact-info-box">
+                        <h3>🕐 ساعات کاری</h3>
+                        <p>
+                            شنبه تا چهارشنبه<br>
+                            ۹ صبح تا ۵ بعدازظهر
+                        </p>
+                    </div>
+
+                    <div class="contact-info-box highlight">
+                        <h3>💡 درخواست حمایت</h3>
+                        <p>
+                            اگر می‌خواهید دانش‌آموزی مستعد را معرفی کنید یا درخواست حمایت کنید، لطفاً از طریق فرم روبرو پیام ارسال کنید.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ -->
+            <div class="content-section" style="margin-top: 4rem;">
+                <h2>سوالات متداول</h2>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h3>چگونه می‌توانم دانش‌آموزی را معرفی کنم؟</h3>
+                        <p>
+                            می‌توانید از طریق فرم تماس‌های این صفحه، اطلاعات دانش‌آموز را ارسال کنید. تیم خورشید با شما تماس خواهد گرفت.
+                        </p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>خدمات خورشید برای چه کسانی است؟</h3>
+                        <p>
+                            خدمات برای دانش‌آموزان مستعد و کم‌برخوردار است. معیارهای انتخاب شامل استعداد علمی و نیاز مالی است.
+                        </p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>آیا هزینه‌های آموزش رایگان است؟</h3>
+                        <p>
+                            بله، تمام خدمات آموزشی خورشید برای دانش‌آموزان تحت حمایت رایگان است.
+                        </p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>آیا می‌توانم داوطلب یا همکار خورشید باشم؟</h3>
+                        <p>
+                            بله، اگر علاقه‌مند به همکاری هستید، لطفاً از طریق فرم تماس درخواست خود را ارسال کنید.
+                        </p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>مدت‌زمان حمایت چقدر است؟</h3>
+                        <p>
+                            حمایت بسته به شرایط و نیازهای دانش‌آموز متفاوت است. می‌تواند برای یک ترم یا یک سال‌تحصیلی باشد.
+                        </p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>چگونه در نیاز‌شناسی دانش‌آموزان کمک کنم؟</h3>
+                        <p>
+                            اگر شناسایی کنندگان یا داشتن اطلاعات درباره دانش‌آموزان مستعد کم‌برخوردار دارید، با ما تماس بگیرید.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>خورشید</h3>
+                    <p>مؤسسه مردم‌نهاد جوانان مهر افروز خورشید علم</p>
+                </div>
+                <div class="footer-section">
+                    <h3>تماس</h3>
+                    <p>شیراز، شهر شیراز</p>
+                    <p>تلفن: <a href="tel:1402">۱۴۰۲</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>پیوندها</h3>
+                    <ul>
+                        <li><a href="about.html">درباره ما</a></li>
+                        <li><a href="objectives.html">اهداف</a></li>
+                        <li><a href="contact.html">تماس</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; ۱۴۰۵ خورشید. تمام حقوق محفوظ است.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
