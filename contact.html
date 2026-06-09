@@ -13,6 +13,7 @@
         <div class="container">
             <div class="nav-brand">
                 <a href="index.html" class="logo">
+                    <img src="assets/logo.png" alt="خورشید" class="logo-img">
                     <span class="logo-text">خورشید</span>
                 </a>
             </div>
@@ -20,7 +21,7 @@
                 <li><a href="index.html">خانه</a></li>
                 <li><a href="about.html">درباره ما</a></li>
                 <li><a href="objectives.html">اهداف و وظایف</a></li>
-                <li><a href="contact.html" class="active btn-contact">تماس با ما</a></li>
+                <li><a href="contact.html" class="btn-contact active">تماس با ما</a></li>
             </ul>
             <div class="hamburger">
                 <span></span>
@@ -34,31 +35,32 @@
     <section class="page-header">
         <div class="container">
             <h1>تماس با ما</h1>
-            <p>ما اینجا هستیم تا کمک کنیم</p>
+            <p>ما همیشه برای شنیدن از شما آماده‌ایم</p>
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Main Content -->
     <section class="page-content">
         <div class="container">
+            <!-- Contact Form and Info -->
             <div class="contact-wrapper">
-                <!-- Contact Form -->
+                <!-- Form Section -->
                 <div class="contact-form-section">
-                    <h2>ارسال پیام</h2>
+                    <h2>فرم تماس</h2>
                     <form id="contactForm" class="contact-form">
                         <div class="form-group">
-                            <label for="name">نام و نام خانوادگی *</label>
-                            <input type="text" id="name" name="name" required>
+                            <label for="name">نام و نام‌خانوادگی *</label>
+                            <input type="text" id="name" name="name" placeholder="نام شما" required>
                         </div>
 
                         <div class="form-group">
                             <label for="email">ایمیل *</label>
-                            <input type="email" id="email" name="email" required>
+                            <input type="email" id="email" name="email" placeholder="ایمیل شما" required>
                         </div>
 
                         <div class="form-group">
-                            <label for="phone">شماره تلفن</label>
-                            <input type="tel" id="phone" name="phone">
+                            <label for="phone">تلفن</label>
+                            <input type="tel" id="phone" name="phone" placeholder="شماره تلفن شما">
                         </div>
 
                         <div class="form-group">
@@ -66,22 +68,22 @@
                             <select id="subject" name="subject" required>
                                 <option value="">انتخاب کنید...</option>
                                 <option value="معرفی دانش‌آموز">معرفی دانش‌آموز مستعد</option>
-                                <option value="درخواست حمایت">درخواست حمایت آموزشی</option>
-                                <option value="همکاری">پیشنهاد همکاری</option>
-                                <option value="سوال">سوال و استفسار</option>
-                                <option value="دیگر">دیگر</option>
+                                <option value="درخواست حمایت">درخواست حمایت</option>
+                                <option value="همکاری">درخواست همکاری</option>
+                                <option value="پیشنهاد">پیشنهاد و انتقاد</option>
+                                <option value="سایر">سایر</option>
                             </select>
                         </div>
 
                         <div class="form-group">
                             <label for="message">پیام *</label>
-                            <textarea id="message" name="message" rows="6" required></textarea>
+                            <textarea id="message" name="message" placeholder="پیام شما..." rows="5" required></textarea>
                         </div>
 
                         <div class="form-group checkbox">
                             <input type="checkbox" id="agree" name="agree" required>
                             <label for="agree">
-                                من با <a href="#privacy">شرایط و قوانین</a> موافقم
+                                من شرایط و <a href="#">قوانین</a> را می‌پذیرم
                             </label>
                         </div>
 
@@ -90,96 +92,93 @@
                     </form>
                 </div>
 
-                <!-- Contact Info -->
+                <!-- Info Section -->
                 <div class="contact-info-section">
                     <h2>اطلاعات تماس</h2>
-                    
-                    <div class="contact-info-box">
+
+                    <div class="contact-info-box highlight">
                         <h3>📍 آدرس</h3>
-                        <p>
-                            استان فارس<br>
-                            شهر شیراز<br>
-                            محله عبیرآمیز<br>
-                            خیابان عبیرآمیز<br>
-                            پلاک ۷۳، طبقه ۳
-                        </p>
+                        <p>شیراز، محله عبیرآمیز</p>
+                        <p>خیابان عبیرآمیز، پلاک ۷۳، طبقه ۳</p>
                         <p class="postal">کد پستی: ۷۱۴۵۶۱۷۷۸۱</p>
                     </div>
 
                     <div class="contact-info-box">
                         <h3>📞 تلفن</h3>
-                        <p>
-                            <a href="tel:1402">۱۴۰۲</a>
-                        </p>
-                        <p class="info-note">(تماس مجاز در ساعات اداری)</p>
+                        <p>شماره تماس: <a href="tel:1402">۱۴۰۲</a></p>
+                        <p class="info-note">ساعات کاری: شنبه تا چهارشنبه، ۹ تا ۱۷</p>
                     </div>
 
                     <div class="contact-info-box">
-                        <h3>📧 ایمیل</h3>
-                        <p>
-                            <a href="mailto:info@khorshid.ngo">info@khorshid.ngo</a>
-                        </p>
+                        <h3>✉️ ایمیل</h3>
+                        <p><a href="mailto:info@khorshid.ngo">info@khorshid.ngo</a></p>
+                        <p class="info-note">پاسخ ظرف ۲۴ ساعت</p>
                     </div>
 
                     <div class="contact-info-box">
-                        <h3>🕐 ساعات کاری</h3>
-                        <p>
-                            شنبه تا چهارشنبه<br>
-                            ۹ صبح تا ۵ بعدازظهر
-                        </p>
+                        <h3>🌐 وبسایت</h3>
+                        <p><a href="https://khorshid.ngo">khorshid.ngo</a></p>
                     </div>
 
-                    <div class="contact-info-box highlight">
-                        <h3>💡 درخواست حمایت</h3>
-                        <p>
-                            اگر می‌خواهید دانش‌آموزی مستعد را معرفی کنید یا درخواست حمایت کنید، لطفاً از طریق فرم روبرو پیام ارسال کنید.
-                        </p>
+                    <div class="contact-info-box">
+                        <h3>📋 ثبت و نوع</h3>
+                        <p>شماره ثبت: ۵۶۶۵</p>
+                        <p>شناسه ملی: ۱۴۰۱۵۱۸۶۵۴۰</p>
                     </div>
                 </div>
             </div>
 
-            <!-- FAQ -->
-            <div class="content-section" style="margin-top: 4rem;">
-                <h2>سوالات متداول</h2>
+            <!-- FAQ Section -->
+            <div class="content-section">
+                <h2>سؤالات متداول</h2>
                 <div class="faq-grid">
                     <div class="faq-item">
                         <h3>چگونه می‌توانم دانش‌آموزی را معرفی کنم؟</h3>
                         <p>
-                            می‌توانید از طریق فرم تماس‌های این صفحه، اطلاعات دانش‌آموز را ارسال کنید. تیم خورشید با شما تماس خواهد گرفت.
+                            می‌تواند از این فرم استفاده کنید و موضوع را "معرفی دانش‌آموز" انتخاب کنید. ما در ۲۴ ساعت با شما تماس خواهیم گرفت.
                         </p>
                     </div>
                     <div class="faq-item">
-                        <h3>خدمات خورشید برای چه کسانی است؟</h3>
+                        <h3>هزینه خدمات چقدر است؟</h3>
                         <p>
-                            خدمات برای دانش‌آموزان مستعد و کم‌برخوردار است. معیارهای انتخاب شامل استعداد علمی و نیاز مالی است.
+                            تمام خدمات خورشید رایگان است. ما یک سازمان غیرانتفاعی هستیم و تمام درآمد را برای حمایت از دانش‌آموزان استفاده می‌کنیم.
                         </p>
                     </div>
                     <div class="faq-item">
-                        <h3>آیا هزینه‌های آموزش رایگان است؟</h3>
+                        <h3>کدام دانش‌آموزان واجد شرایط هستند؟</h3>
                         <p>
-                            بله، تمام خدمات آموزشی خورشید برای دانش‌آموزان تحت حمایت رایگان است.
+                            دانش‌آموزان مستعد با رتبه‌های درسی عالی که نیازمند حمایت مالی هستند می‌توانند از خدمات ما استفاده کنند.
                         </p>
                     </div>
                     <div class="faq-item">
-                        <h3>آیا می‌توانم داوطلب یا همکار خورشید باشم؟</h3>
+                        <h3>برنامه‌های آموزشی چه موضوع‌هایی را شامل می‌شود؟</h3>
                         <p>
-                            بله، اگر علاقه‌مند به همکاری هستید، لطفاً از طریق فرم تماس درخواست خود را ارسال کنید.
+                            ما برنامه‌های تقویتی در ریاضی، علوم، ادبیات و دروس دیگر ارائه می‌دهیم. همچنین کلاس‌های مهارت شغلی برگزار می‌کنیم.
                         </p>
                     </div>
                     <div class="faq-item">
-                        <h3>مدت‌زمان حمایت چقدر است؟</h3>
+                        <h3>آیا می‌توانم داوطلب شوم؟</h3>
                         <p>
-                            حمایت بسته به شرایط و نیازهای دانش‌آموز متفاوت است. می‌تواند برای یک ترم یا یک سال‌تحصیلی باشد.
+                            بله! اگر تمایل دارید با خورشید همکاری کنید، لطفاً از طریق این فرم با ما تماس بگیرید و موضوع را "درخواست همکاری" انتخاب کنید.
                         </p>
                     </div>
                     <div class="faq-item">
-                        <h3>چگونه در نیاز‌شناسی دانش‌آموزان کمک کنم؟</h3>
+                        <h3>چگونه می‌توانم در تأمین بودجه کمک کنم؟</h3>
                         <p>
-                            اگر شناسایی کنندگان یا داشتن اطلاعات درباره دانش‌آموزان مستعد کم‌برخوردار دارید، با ما تماس بگیرید.
+                            ما از هر نوع کمک و حمایت استقبال می‌کنیم. لطفاً با ما تماس بگیرید تا بتوانیم راه‌های مختلف کمک را توضیح دهیم.
                         </p>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <div class="container">
+            <h2>همکاری با خورشید</h2>
+            <p>برای درخواست یا پیشنهاد، با ما تماس بگیرید</p>
+            <a href="#contactForm" class="btn btn-primary-large">فرم تماس</a>
         </div>
     </section>
 
