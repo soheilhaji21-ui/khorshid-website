@@ -1,187 +1,244 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="خورشید - مؤسسه مردم‌نهاد جوانان مهر افروز خورشید علم. عدالت آموزشی برای دانش‌آموزان مستعد مناطق کم‌برخوردار.">
-    <meta name="keywords" content="خورشید, عدالت آموزشی, NGO, شیراز, تحصیل">
-    <title>خورشید - عدالت آموزشی | مؤسسه مردم‌نهاد جوانان</title>
-    <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>خورشید | مؤسسه مردم‌نهاد جوانان مهرافروز خورشید علم</title>
+<meta name="description" content="خورشید، سمن فعال در عدالت آموزشی استان فارس. ثبت‌نام مؤسسات و نهادهای همکار.">
+<meta name="enamad" content="18985898">
+<link rel="icon" href="assets/logo.png">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css">
+<style>
+:root{
+  --indigo:#25286F;
+  --indigo-deep:#171A4D;
+  --sun:#F6A91B;
+  --sky:#EEF0F8;
+  --ink:#1E2033;
+  --muted:#5A5E78;
+  --line:#D9DCEB;
+  --white:#FFFFFF;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{font-family:'Vazirmatn','IRANSans',Tahoma,sans-serif;color:var(--ink);background:var(--white);line-height:1.9;font-size:17px}
+a{color:inherit}
+img{max-width:100%;display:block}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+:focus-visible{outline:3px solid var(--sun);outline-offset:3px;border-radius:4px}
+
+/* header */
+.top{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:72px;gap:16px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand img{width:42px;height:42px;object-fit:contain}
+.brand b{font-size:21px;font-weight:900;color:var(--indigo)}
+.nav{display:flex;gap:28px;list-style:none;font-size:15px}
+.nav a{text-decoration:none;color:var(--muted);font-weight:500}
+.nav a:hover{color:var(--indigo)}
+.btn{display:inline-block;background:var(--indigo);color:var(--white);text-decoration:none;font-weight:700;padding:11px 22px;border-radius:10px;font-size:15px;border:0;cursor:pointer;font-family:inherit}
+.btn:hover{background:var(--indigo-deep)}
+.btn.sun{background:var(--sun);color:var(--indigo-deep)}
+.btn.sun:hover{background:#E8990A}
+
+/* hero: the sunrise */
+.hero{position:relative;background:var(--indigo);color:var(--white);overflow:hidden}
+.hero .wrap{position:relative;z-index:2;padding-top:96px;padding-bottom:230px}
+.hero h1{font-size:clamp(42px,7vw,84px);font-weight:900;line-height:1.15}
+.hero .lead{max-width:560px;margin-top:22px;font-size:19px;color:#FFFFFF}
+.hero .actions{margin-top:36px;display:flex;gap:14px;flex-wrap:wrap}
+.hero .ghost{background:transparent;border:1.5px solid rgba(255,255,255,.5)}
+.hero .ghost:hover{background:rgba(255,255,255,.08)}
+.sunrise{position:absolute;inset:0;z-index:1;pointer-events:none}
+.sunrise svg{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:max(1400px,120%);height:auto}
+.rays{animation:rise 2.2s cubic-bezier(.2,.7,.2,1) both}
+.disc{animation:disc 2.2s cubic-bezier(.2,.7,.2,1) both}
+@keyframes rise{from{transform:translateY(140px);opacity:0}to{transform:none;opacity:1}}
+@keyframes disc{from{transform:translateY(110px)}to{transform:none}}
+@media (prefers-reduced-motion:reduce){.rays,.disc{animation:none}}
+
+/* facts */
+.facts{border-bottom:1px solid var(--line)}
+.facts .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+.fact{padding:30px 20px;border-left:1px solid var(--line)}
+.fact:last-child{border-left:0}
+.fact strong{display:block;font-size:30px;font-weight:900;color:var(--indigo);line-height:1.35}
+.fact span{color:var(--muted);font-size:15px}
+
+/* sections */
+section.block{padding:96px 0}
+.block h2{font-size:clamp(28px,3.6vw,40px);font-weight:900;color:var(--indigo);line-height:1.35;max-width:640px}
+.block .intro{max-width:640px;margin-top:14px;color:var(--muted)}
+.about .cols{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:start}
+.about p.body{margin-top:18px;max-width:620px}
+.about .panel{background:var(--sky);border-radius:18px;padding:32px}
+.about .panel h3{font-size:18px;color:var(--indigo);margin-bottom:12px}
+.about .panel ul{list-style:none}
+.about .panel li{padding:10px 0;border-bottom:1px solid var(--line);font-size:16px}
+.about .panel li:last-child{border-bottom:0}
+
+/* steps: a real sequence */
+.how{padding-bottom:0 !important}
+.steps{margin-top:48px;display:grid;grid-template-columns:repeat(4,1fr);counter-reset:s;border-top:3px solid var(--indigo)}
+.step{padding:26px 22px 0}
+.step::before{counter-increment:s;content:counter(s,persian);display:block;font-size:44px;font-weight:900;color:var(--sun);line-height:1}
+.step h3{font-size:18px;color:var(--indigo);margin:12px 0 8px}
+.step p{font-size:15.5px;color:var(--muted)}
+
+.partners{background:var(--sky)}
+.plist{margin-top:36px;display:flex;flex-wrap:wrap;gap:14px}
+.plist div{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:16px 22px}
+.plist b{display:block;color:var(--indigo);font-size:17px}
+.plist small{color:var(--muted);font-size:14px}
+
+/* form */
+.register .frame{margin-top:0;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--white)}
+.register iframe{display:block;width:100%;height:1300px;border:0}
+.register .fallback{margin-top:18px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;color:var(--muted);font-size:15px}
+.register .notice{display:none;background:#FFF4DB;border:1px solid var(--sun);border-radius:12px;padding:18px 22px;margin-top:24px}
+.register .note{margin-top:22px;font-size:14.5px;color:var(--muted);border-right:3px solid var(--sun);padding-right:14px;max-width:720px}
+
+/* footer */
+footer{background:var(--indigo-deep);color:#C9CCE6;padding:72px 0 calc(28px + env(safe-area-inset-bottom,0px))}
+footer .cols{display:grid;grid-template-columns:1.3fr 1fr 1fr auto;gap:40px}
+footer h3{color:var(--white);font-size:17px;margin-bottom:14px}
+footer p,footer li{font-size:15px;line-height:2}
+footer ul{list-style:none}
+footer a{text-decoration:none}
+footer a:hover{color:var(--sun)}
+.ltr{direction:ltr;unicode-bidi:embed;display:inline-block}
+footer .legal{margin-top:48px;padding-top:22px;border-top:1px solid rgba(255,255,255,.12);font-size:13.5px;color:#9A9EC4;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.enamad img{width:96px;background:#fff;border-radius:8px;padding:4px}
+
+@media (max-width:900px){
+  .nav{display:none}
+  .about .cols{grid-template-columns:1fr;gap:36px}
+  .steps{grid-template-columns:1fr 1fr;row-gap:28px}
+  .facts .wrap{grid-template-columns:1fr 1fr}
+  .fact:nth-child(2){border-left:0}
+  .fact:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  footer .cols{grid-template-columns:1fr 1fr}
+}
+@media (max-width:560px){
+  body{font-size:16px}
+  .top .btn{padding:9px 14px;font-size:14px}
+  .brand b{font-size:18px}
+  .hero .wrap{padding-top:64px;padding-bottom:180px}
+  .steps{grid-template-columns:1fr}
+  section.block{padding:68px 0}
+  footer .cols{grid-template-columns:1fr}
+  .register iframe{height:1500px}
+}
+</style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="nav-brand">
-                <a href="index.html" class="logo">
-                    <img src="assets/logo.png" alt="خورشید" class="logo-img">
-                    <span class="logo-text">خورشید</span>
-                </a>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="index.html" class="active">خانه</a></li>
-                <li><a href="about.html">درباره ما</a></li>
-                <li><a href="objectives.html">اهداف و وظایف</a></li>
-                <li><a href="contact.html" class="btn-contact">تماس با ما</a></li>
-            </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1 class="hero-title">خورشید</h1>
-            <p class="hero-tagline">دانایی نور است</p>
-            <p class="hero-description">
-                عدالت آموزشی برای دانش‌آموزان مستعد مناطق کم‌برخوردار
-            </p>
-            <div class="hero-buttons">
-                <a href="objectives.html" class="btn btn-primary">بیشتر بدانید</a>
-                <a href="contact.html" class="btn btn-secondary">تماس با ما</a>
-            </div>
-        </div>
-        <div class="hero-background">
-            <div class="sun-shape"></div>
-        </div>
-    </section>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="خورشید - صفحه اصلی">
+      <img src="assets/logo.png" alt="نشان خورشید">
+      <b>خورشید</b>
+    </a>
+    <ul class="nav">
+      <li><a href="#how">مسیر همکاری</a></li>
+      <li><a href="#contact">تماس</a></li>
+    </ul>
+    <a class="btn sun" href="#register">ثبت‌نام مؤسسه</a>
+  </div>
+</header>
 
-    <!-- Mission Section -->
-    <section class="mission">
-        <div class="container">
-            <h2>مأموریت ما</h2>
-            <p class="section-intro">
-                خورشید به شناسایی، حمایت و توانمندسازی دانش‌آموزان مستعد در مناطق کم‌برخوردار متعهد است.
-            </p>
-            <div class="mission-grid">
-                <div class="mission-card">
-                    <div class="card-icon">🎓</div>
-                    <h3>شناسایی استعدادها</h3>
-                    <p>شناخت دانش‌آموزان نخبه و مستعد در سراسر شیراز</p>
-                </div>
-                <div class="mission-card">
-                    <div class="card-icon">🤝</div>
-                    <h3>حمایت و راهنمایی</h3>
-                    <p>ارائه خدمات آموزشی و مشاورة تحصیلی</p>
-                </div>
-                <div class="mission-card">
-                    <div class="card-icon">✨</div>
-                    <h3>توانمندسازی</h3>
-                    <p>ایجاد مسیری پایدار برای یادگیری و پیشرفت</p>
-                </div>
-                <div class="mission-card">
-                    <div class="card-icon">🌍</div>
-                    <h3>عدالت اجتماعی</h3>
-                    <p>کاهش نابرابری‌های آموزشی</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<main id="top">
 
-    <!-- Activities Section -->
-    <section class="activities">
-        <div class="container">
-            <h2>فعالیت‌های ما</h2>
-            <p class="section-intro">
-                خورشید از طریق برنامه‌های متنوع و مؤثر در خدمت عدالت آموزشی است.
-            </p>
-            <div class="activities-grid">
-                <div class="activity-item">
-                    <h3>کلاس‌های آموزشی</h3>
-                    <p>برگزاری کلاس‌های تخصصی آنلاین و حضوری برای دانش‌آموزان مستعد</p>
-                </div>
-                <div class="activity-item">
-                    <h3>مشاوره تحصیلی</h3>
-                    <p>راهنمایی و مشاورة فردی برای هر دانش‌آموز</p>
-                </div>
-                <div class="activity-item">
-                    <h3>بسته‌های آموزشی</h3>
-                    <p>تأمین لوازم‌التحریر و منابع یادگیری</p>
-                </div>
-                <div class="activity-item">
-                    <h3>پژوهش و مستندسازی</h3>
-                    <p>بررسی روندهای عدالت آموزشی و ارائه پیشنهادات سیاستی</p>
-                </div>
-                <div class="activity-item">
-                    <h3>همکاری با مدارس</h3>
-                    <p>پروژه‌های مشترک با مدارس و نهادهای اجتماعی</p>
-                </div>
-                <div class="activity-item">
-                    <h3>آزمون‌های آنلاین</h3>
-                    <p>برگزاری آزمون‌های تشخیصی و ارزیابی پیشرفت</p>
-                </div>
-            </div>
-        </div>
-    </section>
+  <section class="hero">
+    <div class="sunrise" aria-hidden="true">
+      <svg viewBox="0 0 1400 560" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMax meet">
+        <g class="rays" fill="#33378C">
+          <polygon points="700,560 -120,140 -120,320"/>
+          <polygon points="700,560 40,-40 240,-40"/>
+          <polygon points="700,560 430,-40 560,-40"/>
+          <polygon points="700,560 640,-40 760,-40"/>
+          <polygon points="700,560 840,-40 970,-40"/>
+          <polygon points="700,560 1160,-40 1360,-40"/>
+          <polygon points="700,560 1520,140 1520,320"/>
+        </g>
+        <g class="disc">
+          <circle cx="700" cy="560" r="172" fill="#25286F"/>
+          <circle cx="700" cy="560" r="150" fill="#F6A91B"/>
+        </g>
+        <path d="M0 560 L0 470 Q350 430 700 500 Q1050 430 1400 470 L1400 560 Z" fill="#25286F"/>
+        <path d="M0 470 Q350 430 700 500 Q1050 430 1400 470" fill="none" stroke="#FFFFFF" stroke-width="7"/>
+      </svg>
+    </div>
+    <div class="wrap">
+      <h1>دانایی نور است</h1>
+      <p class="lead">خورشید با همکاری سازمان‌های مردم‌نهاد، خیریه‌ها و نهادهای استان فارس، دانش‌آموزان مستعدی را که شرایط اقتصادی یا اجتماعی مانع پیشرفتشان شده شناسایی می‌کند و آموزش باکیفیت و رایگان در اختیارشان می‌گذارد.</p>
+      <div class="actions">
+        <a class="btn sun" href="#register">ثبت‌نام برای همکاری</a>
+      </div>
+    </div>
+  </section>
 
-    <!-- Values Section -->
-    <section class="values">
-        <div class="container">
-            <h2>اصول ما</h2>
-            <div class="values-grid">
-                <div class="value">
-                    <h3>غیرانتفاعی</h3>
-                    <p>تمام درآمد به اهداف و برنامه‌های سازمان اختصاص می‌یابد</p>
-                </div>
-                    <div class="value">
-                    <h3>شفاف</h3>
-                    <p>شفافیت در تمام فعالیت‌ها و حسابرسی‌ها</p>
-                </div>
-                <div class="value">
-                    <h3>مبتنی بر شواهد</h3>
-                    <p>تصمیم‌گیری براساس داده‌ها و تحقیقات</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- CTA Section -->
-    <section class="cta">
-        <div class="container">
-            <h2>به ما بپیوندید</h2>
-            <p>آیا دانش‌آموز مستعد می‌شناسید که نیازمند حمایت است؟</p>
-            <a href="contact.html" class="btn btn-primary">تماس بگیرید</a>
-        </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>خورشید</h3>
-                    <p>مؤسسه مردم‌نهاد جوانان مهر افروز خورشید علم</p>
-                            <!-- Enamad Trust Seal -->
-        <div style="margin: 2rem 0;">
-            <a referrerpolicy='origin' target='_blank' href='https://trustseal.enamad.ir/?id=742406&Code=N2Oo3tWOwnHmDDGCpBeUb9aBTVysiflV'>
-                <img referrerpolicy='origin' src='https://trustseal.enamad.ir/logo.aspx?id=742406&Code=N2Oo3tWOwnHmDDGCpBeUb9aBTVysiflV' alt='اعتماد الکترونیکی' style='cursor:pointer; width: 120px;' code='N2Oo3tWOwnHmDDGCpBeUb9aBTVysiflV'>
-            </a>
-        </div>
-                </div>
-                <div class="footer-section">
-                    <h3>تماس</h3>
-                    <p>شیراز، شهر شیراز</p>
-                    <p>تلفن: <a href="tel:1402">۱۴۰۲</a></p>
-                </div>
-                <div class="footer-section">
-                    <h3>پیوندها</h3>
-                    <ul>
-                        <li><a href="about.html">درباره ما</a></li>
-                        <li><a href="objectives.html">اهداف</a></li>
-                        <li><a href="contact.html">تماس</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; ۱۴۰۵ خورشید. تمام حقوق محفوظ است.</p>
-            </div>
-        </div>
-    </footer>
 
-    <script src="js/script.js"></script>
+  <section class="block how" id="how">
+    <div class="wrap">
+      <h2>مسیر همکاری با خورشید</h2>
+      <p class="intro">همکاری برای نهاد معرّف هزینه‌ای ندارد و بار مالی ایجاد نمی‌کند.</p>
+      <div class="steps">
+        <div class="step"><h3>ثبت‌نام مؤسسه</h3><p>فرم پایین همین صفحه را پر کنید. اطلاعات مؤسسه را می‌خواهیم، نه اطلاعات دانش‌آموزان.</p></div>
+        <div class="step"><h3>بررسی و تفاهم‌نامه</h3><p>پس از بررسی با شما تماس می‌گیریم و تفاهم‌نامه همکاری منعقد می‌شود.</p></div>
+        <div class="step"><h3>معرفی دانش‌آموز</h3><p>دانش‌آموزان مستعد را با رضایت کتبی اولیا و طبق معیارهای تفاهم‌نامه معرفی می‌کنید.</p></div>
+        <div class="step"><h3>آموزش و گزارش</h3><p>خدمات آموزشی رایگان ارائه می‌شود و گزارش پیشرفت به شما داده می‌شود.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block register" id="register">
+    <div class="wrap">
+      <div class="frame">
+        <iframe src="https://survey.porsline.ir/s/I74eS43O" title="فرم ثبت‌نام مؤسسات همکار" loading="lazy"></iframe>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <h3>مؤسسه مردم‌نهاد جوانان مهرافروز خورشید علم</h3>
+        <p>شیراز، محله عبیرآمیز، خیابان عبیرآمیز، پلاک ۷۳، طبقه ۳</p>
+        <p>کد پستی ۷۱۴۵۶۱۷۷۸۱</p>
+      </div>
+      <div>
+        <h3>تماس</h3>
+        <ul>
+          <li>تلفن: <a class="ltr" href="tel:+989102417098">۰۹۱۰۲۴۱۷۰۹۸</a></li>
+          <li>ایمیل: <a class="ltr" href="mailto:info@khorshid.ngo">info@khorshid.ngo</a></li>
+          <li>اینستاگرام: <a class="ltr" href="https://instagram.com/khorshid_ngo_" target="_blank" rel="noopener">@khorshid_ngo_</a></li>
+          <li>لینکدین: <a class="ltr" href="https://www.linkedin.com/company/khorshid-ngo" target="_blank" rel="noopener">khorshid-ngo</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>مشخصات ثبتی</h3>
+        <ul>
+          <li>شناسه ملی: ۱۴۰۱۵۱۸۶۵۴۰</li>
+          <li>مرجع مجوز: وزارت ورزش و جوانان</li>
+          <li>شماره مجوز: <span class="ltr">۱۴۰۴۱۶۱۱۲۰۲۰۰۲/۵۷۶۶۴</span></li>
+        </ul>
+      </div>
+      <div class="enamad">
+        <a referrerpolicy="origin" target="_blank" href="https://trustseal.enamad.ir/?id=742406&Code=N2Oo3tWOwnHmDDGCpBeUb9aBTVysiflV"><img referrerpolicy="origin" src="https://trustseal.enamad.ir/logo.aspx?id=742406&Code=N2Oo3tWOwnHmDDGCpBeUb9aBTVysiflV" alt="نماد اعتماد الکترونیکی" code="N2Oo3tWOwnHmDDGCpBeUb9aBTVysiflV"></a>
+      </div>
+    </div>
+    <div class="legal">
+      <span>© ۱۴۰۵ خورشید. سازمان غیرانتفاعی و غیرسیاسی.</span>
+      <span>دانایی نور است</span>
+    </div>
+  </div>
+</footer>
+
 </body>
 </html>
