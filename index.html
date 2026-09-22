@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="fa" dir="rtl" class="js">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -77,13 +77,32 @@ section.block{padding:96px 0}
 .about .panel li{padding:10px 0;border-bottom:1px solid var(--line);font-size:16px}
 .about .panel li:last-child{border-bottom:0}
 
-/* steps: a real sequence */
-.how{padding-bottom:0 !important}
-.steps{margin-top:48px;display:grid;grid-template-columns:repeat(4,1fr);counter-reset:s;border-top:3px solid var(--indigo)}
-.step{padding:26px 22px 0}
-.step::before{counter-increment:s;content:counter(s,persian);display:block;font-size:44px;font-weight:900;color:var(--sun);line-height:1}
-.step h3{font-size:18px;color:var(--indigo);margin:12px 0 8px}
-.step p{font-size:15.5px;color:var(--muted)}
+/* steps: a real sequence, revealed on scroll */
+.flow{margin-top:52px}
+.track{height:3px;background:var(--line);position:relative;border-radius:3px}
+.track::after{content:"";position:absolute;right:0;top:0;height:100%;width:100%;background:var(--sun);border-radius:3px}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;margin-top:34px}
+.step{--i:0}
+.step .ico{width:92px;height:92px;display:block}
+.step .tag{display:inline-block;margin-top:18px;font-size:13px;font-weight:700;color:var(--indigo);background:var(--sky);padding:2px 12px;border-radius:20px}
+.step h3{font-size:19px;color:var(--indigo);margin:10px 0 8px;line-height:1.5}
+.step p{font-size:15.5px;color:var(--muted);line-height:1.95}
+.ico .rays,.ico .sunlet,.ico .draw{transform-box:view-box}
+/* hidden state only when JS is running */
+.js .track::after{width:0;transition:width 1.6s cubic-bezier(.3,.7,.2,1)}
+.js .step{opacity:0;transform:translateY(26px);transition:opacity .7s ease calc(var(--i)*.18s),transform .7s cubic-bezier(.2,.7,.2,1) calc(var(--i)*.18s)}
+.js .ico .rays{opacity:0;transform:scale(.35) rotate(-25deg);transition:opacity .6s ease calc(var(--i)*.18s + .3s),transform 1s cubic-bezier(.2,.8,.2,1) calc(var(--i)*.18s + .3s)}
+.js .ico .sunlet{transform:translateY(12px);transition:transform .9s cubic-bezier(.2,.8,.2,1) calc(var(--i)*.18s + .2s)}
+.js .ico .draw{stroke-dasharray:140;stroke-dashoffset:140;transition:stroke-dashoffset 1.3s ease calc(var(--i)*.18s + .3s)}
+.js .flow.in .track::after{width:100%}
+.js .step.in{opacity:1;transform:none}
+.js .step.in .ico .rays{opacity:1;transform:none}
+.js .step.in .ico .sunlet{transform:none}
+.js .step.in .ico .draw{stroke-dashoffset:0}
+.step:hover .ico .rays{transform:rotate(12deg) !important;transition:transform .6s ease !important}
+@media (prefers-reduced-motion:reduce){
+  .js .step,.js .ico .rays,.js .ico .sunlet,.js .ico .draw,.js .track::after{transition:none !important;opacity:1 !important;transform:none !important;stroke-dashoffset:0 !important;width:100% !important}
+}
 
 .partners{background:var(--sky)}
 .plist{margin-top:36px;display:flex;flex-wrap:wrap;gap:14px}
@@ -114,13 +133,14 @@ footer .legal{margin-top:48px;padding-top:22px;border-top:1px solid rgba(255,255
 @media (max-width:900px){
   .nav{display:none}
   .about .cols{grid-template-columns:1fr;gap:36px}
-  .steps{grid-template-columns:1fr 1fr;row-gap:28px}
+  .steps{grid-template-columns:1fr 1fr;row-gap:40px}
   .facts .wrap{grid-template-columns:1fr 1fr}
   .fact:nth-child(2){border-left:0}
   .fact:nth-child(-n+2){border-bottom:1px solid var(--line)}
   footer .cols{grid-template-columns:1fr 1fr}
 }
 @media (max-width:560px){
+  .step{--i:0 !important}
   body{font-size:16px}
   .top .btn{padding:9px 14px;font-size:14px}
   .brand b{font-size:18px}
@@ -172,7 +192,7 @@ footer .legal{margin-top:48px;padding-top:22px;border-top:1px solid rgba(255,255
     </div>
     <div class="wrap">
       <h1>دانایی نور است</h1>
-      <p class="lead">خورشید، سازمانی غیردولتی، غیرانتفاعی و مردم نهاد است که در حوزه عدالت آموزشی فعالیت می کند و با همکاری سازمان‌های مردم‌نهاد، خیریه‌ها و نهادهای استان فارس، دانش‌آموزان مستعدی را که شرایط اقتصادی یا اجتماعی مانع پیشرفتشان شده شناسایی می‌کند و آموزش باکیفیت و رایگان در اختیارشان می‌گذارد.</p>
+      <p class="lead">خورشید، سازمانی غیردولتی، غیرانتفاعی و مردم‌نهاد است که در حوزه عدالت آموزشی فعالیت می‌کند و با همکاری سازمان‌های مردم‌نهاد، خیریه‌ها و نهادهای استان فارس، دانش‌آموزان مستعدی را که شرایط اقتصادی یا اجتماعی مانع پیشرفتشان شده شناسایی می‌کند و آموزش باکیفیت و رایگان در اختیارشان می‌گذارد.</p>
       <div class="actions">
         <a class="btn sun" href="#register">ثبت‌نام برای همکاری</a>
       </div>
@@ -184,13 +204,85 @@ footer .legal{margin-top:48px;padding-top:22px;border-top:1px solid rgba(255,255
 
   <section class="block how" id="how">
     <div class="wrap">
-      <h2>مسیر همکاری با خورشید</h2>
-      <p class="intro">همکاری برای نهاد معرّف هزینه‌ای ندارد و بار مالی ایجاد نمی‌کند.</p>
-      <div class="steps">
-        <div class="step"><h3>ثبت‌نام مؤسسه</h3><p>فرم پایین همین صفحه را پر کنید. اطلاعات مؤسسه را می‌خواهیم، نه اطلاعات دانش‌آموزان.</p></div>
-        <div class="step"><h3>بررسی و تفاهم‌نامه</h3><p>پس از بررسی با شما تماس می‌گیریم و تفاهم‌نامه همکاری منعقد می‌شود.</p></div>
-        <div class="step"><h3>معرفی دانش‌آموز</h3><p>دانش‌آموزان مستعد را با رضایت کتبی اولیا و طبق معیارهای تفاهم‌نامه معرفی می‌کنید.</p></div>
-        <div class="step"><h3>آموزش و گزارش</h3><p>خدمات آموزشی رایگان ارائه می‌شود و گزارش پیشرفت به شما داده می‌شود.</p></div>
+      <h2>چطور با هم کار می‌کنیم</h2>
+      <p class="intro">همکاری با خورشید برای شما هزینه‌ای ندارد. شما بچه‌ها را می‌شناسید و کنارشان هستید؛ ما آموزش را می‌آوریم و تا آخر مسیر می‌مانیم.</p>
+      <div class="flow">
+        <div class="track" aria-hidden="true"></div>
+        <div class="steps">
+
+          <div class="step" style="--i:0">
+            <svg class="ico" viewBox="0 0 96 96" aria-hidden="true">
+              <circle cx="48" cy="48" r="46" fill="#EEF0F8"/>
+              <g class="rays" style="transform-origin:48px 34px" stroke="#F6A91B" stroke-width="4" stroke-linecap="round">
+                <line x1="48" y1="20" x2="48" y2="12"/><line x1="36" y1="24" x2="31" y2="17"/><line x1="60" y1="24" x2="65" y2="17"/>
+                <line x1="28" y1="33" x2="20" y2="30"/><line x1="68" y1="33" x2="76" y2="30"/>
+              </g>
+              <circle class="sunlet" cx="48" cy="34" r="9" fill="#F6A91B"/>
+              <polygon points="22,48 48,32 74,48" fill="#25286F"/>
+              <rect x="27" y="47" width="42" height="28" rx="2" fill="#25286F"/>
+              <rect x="33" y="54" width="8" height="7" rx="1" fill="#FFFFFF"/>
+              <rect x="55" y="54" width="8" height="7" rx="1" fill="#FFFFFF"/>
+              <rect x="43" y="61" width="10" height="14" rx="1.5" fill="#F6A91B"/>
+            </svg>
+            <span class="tag">قدم اول</span>
+            <h3>نهادهای همراه، به ما می‌پیوندند</h3>
+            <p>مؤسسه‌ها و نهادهایی که دانش‌آموزان مستعد و کم‌برخوردار را می‌شناسند و کنارشان هستند، از طریق فرم همین صفحه خودشان را معرفی می‌کنند.</p>
+          </div>
+
+          <div class="step" style="--i:1">
+            <svg class="ico" viewBox="0 0 96 96" aria-hidden="true">
+              <circle cx="48" cy="48" r="46" fill="#EEF0F8"/>
+              <rect x="24" y="18" width="38" height="52" rx="5" fill="#FFFFFF" stroke="#25286F" stroke-width="3.5"/>
+              <line x1="32" y1="31" x2="54" y2="31" stroke="#25286F" stroke-width="3.5" stroke-linecap="round"/>
+              <line x1="32" y1="40" x2="54" y2="40" stroke="#25286F" stroke-width="3.5" stroke-linecap="round"/>
+              <line x1="32" y1="49" x2="46" y2="49" stroke="#25286F" stroke-width="3.5" stroke-linecap="round"/>
+              <g class="rays" style="transform-origin:62px 64px" stroke="#F6A91B" stroke-width="3.5" stroke-linecap="round">
+                <line x1="62" y1="46" x2="62" y2="41"/><line x1="76" y1="52" x2="80" y2="48"/><line x1="80" y1="64" x2="85" y2="64"/>
+                <line x1="76" y1="77" x2="80" y2="81"/><line x1="48" y1="52" x2="44" y2="48"/>
+              </g>
+              <circle class="sunlet" cx="62" cy="64" r="13" fill="#F6A91B"/>
+              <path d="M56 64 L60.5 68.5 L68.5 59.5" fill="none" stroke="#25286F" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="tag">قدم دوم</span>
+            <h3>آشنایی و ساختن اعتماد</h3>
+            <p>با هم گفت‌وگو می‌کنیم، اطلاعات را با دقت و حوصله بررسی می‌کنیم و وقتی هر دو طرف مطمئن شدیم، همکاری را با یک تفاهم‌نامه روشن و ساده آغاز می‌کنیم.</p>
+          </div>
+
+          <div class="step" style="--i:2">
+            <svg class="ico" viewBox="0 0 96 96" aria-hidden="true">
+              <circle cx="48" cy="48" r="46" fill="#EEF0F8"/>
+              <g class="rays" style="transform-origin:48px 58px" stroke="#F6A91B" stroke-width="4" stroke-linecap="round">
+                <line x1="48" y1="38" x2="48" y2="28"/><line x1="34" y1="44" x2="27" y2="37"/><line x1="62" y1="44" x2="69" y2="37"/>
+                <line x1="28" y1="55" x2="18" y2="52"/><line x1="68" y1="55" x2="78" y2="52"/>
+              </g>
+              <circle class="sunlet" cx="48" cy="58" r="12" fill="#F6A91B"/>
+              <polygon points="16,60 48,68 48,80 16,72" fill="#25286F"/>
+              <polygon points="80,60 48,68 48,80 80,72" fill="#25286F"/>
+              <path d="M16 60 L48 68 L80 60" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linejoin="round"/>
+            </svg>
+            <span class="tag">قدم سوم</span>
+            <h3>آموزش به دست دانش‌آموز می‌رسد</h3>
+            <p>دانش‌آموزانی که شما معرفی می‌کنید، بدون پرداخت هیچ هزینه‌ای بسته‌های آموزشی، مشاوره تحصیلی، آزمون‌ها و لوازم‌التحریر را دریافت می‌کنند.</p>
+          </div>
+
+          <div class="step" style="--i:3">
+            <svg class="ico" viewBox="0 0 96 96" aria-hidden="true">
+              <circle cx="48" cy="48" r="46" fill="#EEF0F8"/>
+              <path class="draw" d="M18 78 C 34 76, 30 60, 44 58 S 58 46, 60 36" fill="none" stroke="#25286F" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="4 7"/>
+              <line x1="62" y1="16" x2="62" y2="40" stroke="#25286F" stroke-width="3.5" stroke-linecap="round"/>
+              <polygon points="62,17 80,23 62,30" fill="#25286F"/>
+              <g class="rays" style="transform-origin:76px 60px" stroke="#F6A91B" stroke-width="3" stroke-linecap="round">
+                <line x1="76" y1="49" x2="76" y2="45"/><line x1="84" y1="53" x2="87" y2="50"/><line x1="87" y1="60" x2="91" y2="60"/><line x1="68" y1="53" x2="65" y2="50"/>
+              </g>
+              <circle class="sunlet" cx="76" cy="60" r="7" fill="#F6A91B"/>
+              <circle cx="18" cy="78" r="4" fill="#F6A91B"/>
+            </svg>
+            <span class="tag">قدم چهارم</span>
+            <h3>همراهی تا روز کنکور</h3>
+            <p>مسیر هر دانش‌آموز را قدم‌به‌قدم ثبت و دنبال می‌کنیم و تا کنکور سراسری کنارش می‌مانیم. گزارش این مسیر هم به شما می‌رسد تا بدانید حمایتتان به کجا رسیده است.</p>
+          </div>
+
+        </div>
       </div>
     </div>
   </section>
@@ -217,7 +309,7 @@ footer .legal{margin-top:48px;padding-top:22px;border-top:1px solid rgba(255,255
         <h3>تماس</h3>
         <ul>
           <li>تلفن: <a class="ltr" href="tel:+989102417098">۰۹۱۰۲۴۱۷۰۹۸</a></li>
-          <li>ایمیل: <a class="ltr" href="mailto:info@khorshid.ngo">khorshidngo@outlook.com</a></li>
+          <li>ایمیل: <a class="ltr" href="mailto:khorshidngo@outlook.com">khorshidngo@outlook.com</a></li>
           <li>اینستاگرام: <a class="ltr" href="https://instagram.com/khorshid_ngo_" target="_blank" rel="noopener">@khorshid_ngo_</a></li>
           <li>لینکدین: <a class="ltr" href="https://www.linkedin.com/company/khorshid-ngo" target="_blank" rel="noopener">khorshid-ngo</a></li>
         </ul>
@@ -225,7 +317,7 @@ footer .legal{margin-top:48px;padding-top:22px;border-top:1px solid rgba(255,255
       <div>
         <h3>مشخصات ثبتی</h3>
         <ul>
-          <li>شماره ثبت:۵۶۶۵ </li>
+          <li>شماره ثبت: ۵۶۶۵</li>
           <li>با مجوز رسمی از وزارت ورزش و جوانان</li>
         </ul>
       </div>
@@ -235,11 +327,23 @@ footer .legal{margin-top:48px;padding-top:22px;border-top:1px solid rgba(255,255
       </div>
     </div>
     <div class="legal">
-      <span>  ۱۴۰۵-2026 کلیه حقوق این وبسایت متعلق به سازمان مردم نهاد خورشید است</span>
-      <span>Khorshid NGO© </span>
+      <span>۱۴۰۵ - ۲۰۲۶ کلیه حقوق این وب‌سایت متعلق به سازمان مردم‌نهاد خورشید است.</span>
+      <span class="ltr">© Khorshid NGO</span>
     </div>
   </div>
 </footer>
 
+<script>
+(function(){
+  var flow=document.querySelector('.flow');
+  if(!flow) return;
+  var items=[flow].concat([].slice.call(flow.querySelectorAll('.step')));
+  if(!('IntersectionObserver' in window)){items.forEach(function(el){el.classList.add('in');});return;}
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{threshold:0.25});
+  items.forEach(function(el){io.observe(el);});
+})();
+</script>
 </body>
 </html>
