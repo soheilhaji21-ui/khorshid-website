@@ -111,11 +111,9 @@ section.block{padding:96px 0}
 .plist small{color:var(--muted);font-size:14px}
 
 /* form */
-.register .frame{margin-top:0;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--white)}
-.register iframe{display:block;width:100%;height:1300px;border:0}
-.register .fallback{margin-top:18px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;color:var(--muted);font-size:15px}
-.register .notice{display:none;background:#FFF4DB;border:1px solid var(--sun);border-radius:12px;padding:18px 22px;margin-top:24px}
-.register .note{margin-top:22px;font-size:14.5px;color:var(--muted);border-right:3px solid var(--sun);padding-right:14px;max-width:720px}
+.register .cta-row{margin-top:34px}
+.register .cta-row .btn{font-size:17px;padding:15px 34px}
+.register .note{margin-top:26px;font-size:14.5px;color:var(--muted);border-right:3px solid var(--sun);padding-right:14px;max-width:720px}
 
 /* footer */
 footer{background:var(--indigo-deep);color:#C9CCE6;padding:72px 0 calc(28px + env(safe-area-inset-bottom,0px))}
@@ -148,7 +146,6 @@ footer .legal{margin-top:48px;padding-top:22px;border-top:1px solid rgba(255,255
   .steps{grid-template-columns:1fr}
   section.block{padding:68px 0}
   footer .cols{grid-template-columns:1fr}
-  .register iframe{height:1500px}
 }
 </style>
 </head>
@@ -204,8 +201,8 @@ footer .legal{margin-top:48px;padding-top:22px;border-top:1px solid rgba(255,255
 
   <section class="block how" id="how">
     <div class="wrap">
-      <h2>چطور با خورشید همکاری کنیم؟</h2>
-      <p class="intro">همکاری با خورشید رایگان است و ما همیشه از همیاری شما استقبال می کنیم.</p>
+      <h2>چطور با هم کار می‌کنیم</h2>
+      <p class="intro">همکاری با خورشید برای شما هزینه‌ای ندارد. شما بچه‌ها را می‌شناسید و کنارشان هستید؛ ما آموزش را می‌آوریم و تا آخر مسیر می‌مانیم.</p>
       <div class="flow">
         <div class="track" aria-hidden="true"></div>
         <div class="steps">
@@ -289,9 +286,12 @@ footer .legal{margin-top:48px;padding-top:22px;border-top:1px solid rgba(255,255
 
   <section class="block register" id="register">
     <div class="wrap">
-      <div class="frame">
-        <iframe src="https://survey.porsline.ir/s/I74eS43O" title="فرم ثبت‌نام مؤسسات همکار" loading="lazy"></iframe>
+      <h2>ثبت‌نام مؤسسات و نهادهای همکار</h2>
+      <p class="intro">فرم کوتاه است و فقط اطلاعات مؤسسه را می‌خواهد. پس از ثبت، خودمان با شما تماس می‌گیریم.</p>
+      <div class="cta-row">
+        <a class="btn sun porsline-button-wrapper" href="#porsline-side-tab" onclick="return openPorsline()">ثبت‌نام مؤسسه</a>
       </div>
+      <p class="note">اطلاعات هویتی دانش‌آموزان را در این فرم وارد نکنید. انتقال اطلاعات دانش‌آموزان فقط پس از امضای تفاهم‌نامه و با رضایت کتبی اولیا انجام می‌شود.</p>
     </div>
   </section>
 
@@ -344,6 +344,29 @@ footer .legal{margin-top:48px;padding-top:22px;border-top:1px solid rgba(255,255
   },{threshold:0.25});
   items.forEach(function(el){io.observe(el);});
 })();
+</script>
+<script>
+(function(){
+  var d=document,id="porsline-share",b="https://canarycdn.porsline.ir/static/panel/v2/statics/",js,q;
+  if(!d.getElementById(id)){
+    js=d.createElement("script");
+    js.id=id; js.setAttribute("data-position","right"); js.src=b+"side-tab.js";
+    q=d.getElementsByTagName("script")[0];
+    q.parentNode.insertBefore(js,q);
+  }
+})();
+function openPorsline(){
+  var url="https://survey.porsline.ir/s/I74eS43O";
+  var el=document.getElementById('porsline-side-tab-iframe');
+  if(el && typeof showSideTab==='function'){
+    el.fetchPriority='high';
+    el.src=url+"#/?ac=0&ns=0";
+    showSideTab();
+  } else {
+    window.open(url,'_blank','noopener');
+  }
+  return false;
+}
 </script>
 </body>
 </html>
