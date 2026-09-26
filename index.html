@@ -113,6 +113,11 @@ section.block{padding:96px 0}
 /* form */
 .register .cta-row{margin-top:34px}
 .register .cta-row .btn{font-size:17px;padding:15px 34px}
+#porslineOverlay{display:none}
+#porslineOverlay.open{display:block}
+#porslineClose{position:fixed;top:14px;right:14px;z-index:100000;width:44px;height:44px;border-radius:50%;border:0;background:var(--indigo);color:#fff;font-size:24px;line-height:1;cursor:pointer;font-family:inherit;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+#porslineClose:hover{background:var(--indigo-deep)}
+body.locked{overflow:hidden}
 .register .note{margin-top:26px;font-size:14.5px;color:var(--muted);border-right:3px solid var(--sun);padding-right:14px;max-width:720px}
 
 /* footer */
@@ -345,28 +350,42 @@ footer .legal{margin-top:48px;padding-top:22px;border-top:1px solid rgba(255,255
   items.forEach(function(el){io.observe(el);});
 })();
 </script>
+<div id="porslineOverlay" role="dialog" aria-modal="true" aria-label="فرم ثبت‌نام مؤسسات همکار">
+  <button id="porslineClose" type="button" aria-label="بستن فرم">&times;</button>
+  <div id="I74eS43O" style="min-height:480px;width:100vw;height:100dvh;position:fixed;top:0;left:0;z-index:99999;background:#fff;">
+    <div id="porsline-loading-I74eS43O" style="position:absolute;top:50%;left:50%;width:35px;height:35px;border:4px solid rgba(0,0,0,0.1);border-top:4px solid #555;border-radius:50%;animation:spin-I74eS43O 1s linear infinite;"></div>
+    <script>
+      var styleSheet = document.createElement('style');
+      styleSheet.innerHTML = `@keyframes spin-I74eS43O {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }`;
+      document.head.appendChild(styleSheet);
+      var loadingIndicator = document.getElementById('porsline-loading-I74eS43O');
+      var plScript = document.createElement('script');
+      plScript.type = 'text/javascript';
+      plScript.fetchPriority = 'high';
+      plScript.onload = function() {
+        loadingIndicator.style.display = 'none';
+      };
+      plScript.src = 'https://survey.porsline.ir/embed/eyJib3JkZXIiOiJub25lIiwid2lkdGgiOiIxMDAlIiwiaGVpZ2h0IjoiMTAwJSJ9/I74eS43O';
+      document.getElementById('I74eS43O').appendChild(plScript);
+    </script>
+  </div>
+</div>
+
 <script>
-(function(){
-  var d=document,id="porsline-share",b="https://canarycdn.porsline.ir/static/panel/v2/statics/",js,q;
-  if(!d.getElementById(id)){
-    js=d.createElement("script");
-    js.id=id; js.setAttribute("data-position","right"); js.src=b+"side-tab.js";
-    q=d.getElementsByTagName("script")[0];
-    q.parentNode.insertBefore(js,q);
-  }
-})();
 function openPorsline(){
-  var url="https://survey.porsline.ir/s/I74eS43O";
-  var el=document.getElementById('porsline-side-tab-iframe');
-  if(el && typeof showSideTab==='function'){
-    el.fetchPriority='high';
-    el.src=url+"#/?ac=0&ns=0";
-    showSideTab();
-  } else {
-    window.open(url,'_blank','noopener');
-  }
+  document.getElementById('porslineOverlay').classList.add('open');
+  document.body.classList.add('locked');
   return false;
 }
+function closePorsline(){
+  document.getElementById('porslineOverlay').classList.remove('open');
+  document.body.classList.remove('locked');
+}
+document.getElementById('porslineClose').addEventListener('click', closePorsline);
+document.addEventListener('keydown', function(e){ if(e.key === 'Escape'){ closePorsline(); } });
 </script>
 </body>
 </html>
